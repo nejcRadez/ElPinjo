@@ -10,15 +10,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 
 public class MainActivity extends ActionBarActivity {
 
     WifiManager mainWifi;
     List<ScanResult> wifiList;
-    int signalLevelSum;
+    double signalLevelSum;
     public final static String EXTRA_MESSAGE = "com.example.nejc.elpinjo.MESSAGE";
+    public final static String EXTRA_MESSAGE2 = "com.example.nejc.elpinjo.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mainWifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
@@ -51,13 +55,27 @@ public class MainActivity extends ActionBarActivity {
     public void getWifiSignal(View view){
         Intent intent = new Intent(this, DisplayWifiSignalActivity.class);
         wifiList = mainWifi.getScanResults();
+        Map<String, Double> wifiMap = new HashMap<String, Double>();
+        double signalLevelDouble;
+        double x=10;
+        double dbmToWatt;
+        int signalLevelDbm;
+        Map.Entry wifiName;
+        double signaStrength;
         for (ScanResult result : wifiList) {
-
-            int signalLevel = result.level;
-            signalLevelSum += signalLevel;
+            signalLevelDbm = result.level;
+            signalLevelDouble = (double) signalLevelDbm;
+            dbmToWatt = Math.pow(x, signalLevelDouble/10);
+            dbmToWatt = dbmToWatt/1000;
+            wifiMap.put(result.SSID, dbmToWatt);
         }
-        String signalStrength = Integer.toString(signalLevelSum);
-        intent.putExtra(EXTRA_MESSAGE, signalStrength);
+
+        Iterator itr = wifiMap.entrySet().iterator();
+        while(itr.hasNext()) {
+            wifiName = itr.next();
+
+            intent.putExtra(EXTRA_MESSAGE, signalStrength);
+        }
         startActivity(intent);
     }
 }

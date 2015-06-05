@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -53,15 +54,18 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void getWifiSignal(View view){
+
         Intent intent = new Intent(this, DisplayWifiSignalActivity.class);
-        wifiList = mainWifi.getScanResults();
+
         Map<String, Double> wifiMap = new HashMap<String, Double>();
         double signalLevelDouble;
         double x=10;
         double dbmToWatt;
-        int signalLevelDbm;
-        Map.Entry wifiName;
         double signaStrength;
+        int signalLevelDbm;
+        Bundle extras = new Bundle();
+
+        wifiList = mainWifi.getScanResults();
         for (ScanResult result : wifiList) {
             signalLevelDbm = result.level;
             signalLevelDouble = (double) signalLevelDbm;
@@ -69,13 +73,7 @@ public class MainActivity extends ActionBarActivity {
             dbmToWatt = dbmToWatt/1000;
             wifiMap.put(result.SSID, dbmToWatt);
         }
-
-        Iterator itr = wifiMap.entrySet().iterator();
-        while(itr.hasNext()) {
-            wifiName = itr.next();
-
-            intent.putExtra(EXTRA_MESSAGE, signalStrength);
-        }
+        intent.putExtra("hashMap", (Serializable) wifiMap);
         startActivity(intent);
     }
 }

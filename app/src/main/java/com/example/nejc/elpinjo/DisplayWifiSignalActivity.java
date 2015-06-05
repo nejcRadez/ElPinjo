@@ -5,7 +5,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.HashMap;
 
 
 public class DisplayWifiSignalActivity extends ActionBarActivity {
@@ -13,14 +17,22 @@ public class DisplayWifiSignalActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_display_wifi_signal);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.displayWifiLayout);
+
+        double wifiSignalStrength;
+        String wifiSignalStrengthString;
         Intent intent = getIntent();
-        String signal = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        HashMap<String, Double> hashMap = (HashMap<String, Double>) intent.getSerializableExtra("hashMap");
+        for(String wifiName : hashMap.keySet()) {
+            TextView textView = new TextView(this);
+            wifiSignalStrength = hashMap.get(wifiName);
+            wifiSignalStrengthString = Double.toString(wifiSignalStrength);
+            textView.setTextSize(20);
+            textView.setText(wifiName + wifiSignalStrengthString);
+            layout.addView(textView);
+        }
 
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(signal);
-
-        setContentView(textView);
     }
 
     @Override

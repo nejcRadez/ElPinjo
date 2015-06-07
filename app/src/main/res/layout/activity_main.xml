@@ -3,10 +3,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
-    <Button
-        android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="155dp"
+        android:layout_height="307dp"
+        android:id="@+id/imageIcon"
+        android:src="@drawable/el_pinjo_logo3" />
+
+    <EditText
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:text="@string/button_send"
-        android:onClick="getWifiSignal"/>
+        android:inputType="textPersonName"
+        android:hint="Username"
+        android:ems="10"
+        android:id="@+id/editUsername"
+        android:textColor="@color/green_my_text"
+        android:textColorHint="@color/green_my_text"/>
+
+    <EditText
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:ems="10"
+        android:id="@+id/editEmail"
+        android:textColor="@color/green_my_text"
+        android:textColorHint="@color/green_my_text" />
+
+    <EditText
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:ems="10"
+        android:id="@+id/editPassword"
+        android:textColor="@color/green_my_text"
+        android:textColorHint="@color/green_my_text"/>
+
+    <Button
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_register"
+        android:id="@+id/button"
+        android:layout_weight="0.20"
+        android:textColor="@color/green_my" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_measure"
+            android:onClick="getWifiSignal"
+            android:textColor="@color/green_my" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_sign_in"
+            android:textColor="@color/green_my" />
+    </LinearLayout>
+
+
 </LinearLayout>

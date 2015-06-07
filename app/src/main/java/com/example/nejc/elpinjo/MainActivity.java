@@ -1,14 +1,20 @@
 package com.example.nejc.elpinjo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.method.PasswordTransformationMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -17,18 +23,22 @@ import java.util.List;
 import java.util.Map;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     WifiManager mainWifi;
     List<ScanResult> wifiList;
-    double signalLevelSum;
-    public final static String EXTRA_MESSAGE = "com.example.nejc.elpinjo.MESSAGE";
-    public final static String EXTRA_MESSAGE2 = "com.example.nejc.elpinjo.MESSAGE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mainWifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         super.onCreate(savedInstanceState);
+        //Hide action bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         setContentView(R.layout.activity_main);
+        //Fixes the typeface
+        EditText password = (EditText) findViewById(R.id.editPassword);
+        password.setTypeface(Typeface.DEFAULT);
     }
 
     @Override

@@ -86,4 +86,11 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("hashMap", (Serializable) wifiMap);
         startActivity(intent);
     }
+
+    public void getRegistrationData(View view){
+
+        Intent intent = new Intent(this, Registration.class);
+        startActivity(intent);
+
+    }
 }

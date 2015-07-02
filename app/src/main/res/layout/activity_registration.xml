@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/displayRegistrationLayout">
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:gravity="center">
+
+    <EditText
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Username"
+        android:ems="10"
+        android:id="@+id/registerUsername"
+        android:textColor="@color/green_my_text"
+        android:textColorHint="@color/green_my_text"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/registerEmail"
+        android:layout_alignStart="@+id/registerEmail"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:ems="10"
+        android:id="@+id/registerPassword"
+        android:textColor="@color/green_my_text"
+        android:textColorHint="@color/green_my_text"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:ems="10"
+        android:id="@+id/registerEmail"
+        android:textColor="@color/green_my_text"
+        android:textColorHint="@color/green_my_text"
+        android:layout_gravity="center_horizontal" />
+
+
+    <Button
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_register"
+        android:id="@+id/registerButton"
+        android:layout_weight="0.1"
+        android:textColor="@color/green_my"
+        android:elegantTextHeight="false"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

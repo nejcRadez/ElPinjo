@@ -14,7 +14,9 @@ import android.text.method.PasswordTransformationMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         mainWifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         super.onCreate(savedInstanceState);
         //Hide action bar
@@ -39,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         //Fixes the typeface
         EditText password = (EditText) findViewById(R.id.editPassword);
         password.setTypeface(Typeface.DEFAULT);
+
     }
 
     @Override
@@ -94,3 +100,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+

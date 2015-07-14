@@ -16,20 +16,10 @@
     <EditText
         android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Username"
-        android:ems="10"
-        android:id="@+id/editUsername"
-        android:textColor="@color/green_my_text"
-        android:textColorHint="@color/green_my_text"/>
-
-    <EditText
-        android:layout_width="310dp"
-        android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:hint="Email"
         android:ems="10"
-        android:id="@+id/editEmail"
+        android:id="@+id/signInEmail"
         android:textColor="@color/green_my_text"
         android:textColorHint="@color/green_my_text" />
 
@@ -39,7 +29,7 @@
         android:inputType="textPassword"
         android:hint="Password"
         android:ems="10"
-        android:id="@+id/editPassword"
+        android:id="@+id/signInPassword"
         android:textColor="@color/green_my_text"
         android:textColorHint="@color/green_my_text"/>
 
@@ -47,8 +37,9 @@
         android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:text="@string/button_sign_in"
-        android:id="@+id/button"
+        android:id="@+id/signInButton"
         android:layout_weight="0.20"
+        android:onClick="signInUser"
         android:textColor="@color/green_my" />
 
     <LinearLayout

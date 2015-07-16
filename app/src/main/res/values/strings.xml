@@ -11,4 +11,5 @@
     <string name="title_registration">Register</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_regions">Regions</string>
 </resources>

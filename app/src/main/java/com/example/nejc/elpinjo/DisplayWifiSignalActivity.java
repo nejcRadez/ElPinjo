@@ -1,13 +1,9 @@
 package com.example.nejc.elpinjo;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,6 +16,7 @@ public class DisplayWifiSignalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_wifi_signal);
+
         LinearLayout layout = (LinearLayout) findViewById(R.id.displayWifiLayout);
 
         double wifiSignalStrength;

@@ -40,6 +40,10 @@
             android:name=".Regions"
             android:label="@string/title_activity_regions" >
         </activity>
+        <activity
+            android:name=".MeasureWifiSignalActivity"
+            android:label="@string/title_activity_measure_wifi_signal" >
+        </activity>
     </application>
 
 </manifest>

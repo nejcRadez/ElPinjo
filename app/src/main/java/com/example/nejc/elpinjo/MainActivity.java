@@ -38,8 +38,6 @@ import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    WifiManager mainWifi;
-    List<ScanResult> wifiList;
     private EditText signInPassword;
     private EditText signInEmail;
     public User user;
@@ -49,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
-        mainWifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         super.onCreate(savedInstanceState);
         //Hide action bar
         ActionBar actionBar = getSupportActionBar();
@@ -86,24 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void getWifiSignal(View view){
 
-        Intent intent = new Intent(this, DisplayWifiSignalActivity.class);
-
-        Map<String, Double> wifiMap = new HashMap<String, Double>();
-        double signalLevelDouble;
-        double x=10;
-        double dbmToWatt;
-        int signalLevelDbm;
-
-
-        wifiList = mainWifi.getScanResults();
-        for (ScanResult result : wifiList) {
-            signalLevelDbm = result.level;
-            signalLevelDouble = (double) signalLevelDbm;
-            dbmToWatt = Math.pow(x, signalLevelDouble/10);
-            dbmToWatt = dbmToWatt/1000;
-            wifiMap.put(result.SSID, dbmToWatt);
-        }
-        intent.putExtra("hashMap", (Serializable) wifiMap);
+        Intent intent = new Intent(this, Regions.class);
         startActivity(intent);
     }
 
